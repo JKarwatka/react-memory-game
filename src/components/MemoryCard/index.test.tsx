@@ -6,7 +6,7 @@ import { MemoryCardState } from '../../utils/MemoryCardState'
 
 const defaultProps = {
   id: 'id',
-  state: MemoryCardState.FaceDown,
+  cardState: MemoryCardState.FaceDown,
   img: 'img',
   onClick: () => () => { },
   cardBack: 'cardBack'
@@ -16,7 +16,7 @@ describe('MemoryCard', () => {
   it('should show correct image when card is faced up', async () => {
     const img = 'test'
     const props = {
-      state: MemoryCardState.FaceUp,
+      cardState: MemoryCardState.FaceUp,
       img
     }
 
@@ -30,7 +30,7 @@ describe('MemoryCard', () => {
   it('should show card back when card is faced down', async () => {
     const cardBack = 'test'
     const props = {
-      state: MemoryCardState.FaceDown,
+      cardState: MemoryCardState.FaceDown,
       cardBack
     }
 
@@ -43,7 +43,7 @@ describe('MemoryCard', () => {
 
   it('should not show card back when card is hidden', async () => {
 
-    render(<MemoryCard {...defaultProps} state={MemoryCardState.Hidden} />)
+    render(<MemoryCard {...defaultProps} cardState={MemoryCardState.Hidden} />)
 
     const image = screen.queryByRole('img');
 
