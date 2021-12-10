@@ -1,9 +1,9 @@
-export const CARD_NAMES =  [
-  '1.svg', 
-  '2.svg', 
-  '3.svg', 
-  '4.svg', 
-  '5.svg', 
+export const CARD_NAMES = [
+  '1.svg',
+  '2.svg',
+  '3.svg',
+  '4.svg',
+  '5.svg',
   '6.svg',
   '7.svg',
   '8.svg',
@@ -40,3 +40,5 @@ export const CARD_NAMES =  [
   '39.svg',
   '40.svg',
 ]
+
+export const CARD_BACK = 'back.svg'

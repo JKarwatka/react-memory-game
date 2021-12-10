@@ -17,12 +17,12 @@ export const boardSlice = createSlice({
   initialState,
   reducers: {
     revealCard: (state, action: PayloadAction<string>) => {
-      state.cards
+      state.cards = state.cards
         .map(card =>
           card.id === action.payload
             ? ({
               ...card,
-              state: MemoryCardState.FaceUp
+              cardState: MemoryCardState.FaceUp
             })
             : card
         )
@@ -33,7 +33,7 @@ export const boardSlice = createSlice({
           card.id === action.payload
             ? ({
               ...card,
-              state: MemoryCardState.FaceUp
+              cardState: MemoryCardState.FaceDown
             })
             : card
         )

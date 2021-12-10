@@ -14,6 +14,8 @@ describe('generateBoard', () => {
 
 
   it('should contain 2 cards with the same image', () => {
+    const numOfPairs = 8
+
     const hasCompletePairs = (array: MemoryCardData[]) => {
       const counts = array.reduce(
         (acc, item) =>
@@ -29,7 +31,7 @@ describe('generateBoard', () => {
       return Object.values(counts).every(count => count === 2)
     }
 
-    const result = generateBoard(8)
+    const result = generateBoard(numOfPairs)
 
     expect(hasCompletePairs(result)).toBe(true)
   })

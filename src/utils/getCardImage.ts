@@ -1,0 +1,1 @@
+export const getCardImage = (imgName: string) => `${process.env.PUBLIC_URL}/img/${imgName}`

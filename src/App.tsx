@@ -1,9 +1,10 @@
 import React from 'react';
-import _ from 'lodash';
+import { Board } from './components/Board';
 
 const App = () => (
   <div className="App">
     <header className="App-header">
+      <Board />
     </header>
   </div>
 );

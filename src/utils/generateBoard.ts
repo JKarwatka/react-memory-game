@@ -11,7 +11,7 @@ export const generateBoard = (size: number) => {
     .map((_, i) => ({
       id: uuidv4(),
       img: images[i % size],
-      state: MemoryCardState.FaceDown
+      cardState: MemoryCardState.FaceDown
     }))
     .sort(() => Math.random() - 0.5)
 }

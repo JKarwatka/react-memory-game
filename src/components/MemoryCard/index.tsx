@@ -6,7 +6,7 @@ import { MemoryCardData } from '../../utils/MemoryCardData';
 
 interface MemoryCardProps extends MemoryCardData {
   cardBack: string
-  onClick: (id: string) => () => void
+  onClick: () => void
 }
 
 
@@ -17,7 +17,7 @@ const CardImage = styled('img')({
 
 //TODO: Refactor displaying Card based on state
 //TODO: Move styled components to separate file
-export const MemoryCard = ({ id, state, img, onClick, cardBack }: MemoryCardProps) => (
+export const MemoryCard = ({ id, cardState, img, onClick, cardBack }: MemoryCardProps) => (
   <Box sx={{
     display: 'flex',
     justifyContent: 'center',
@@ -26,7 +26,7 @@ export const MemoryCard = ({ id, state, img, onClick, cardBack }: MemoryCardProp
     width: 200
   }}>
     {
-      state !== MemoryCardState.Hidden && <Paper sx={{
+      cardState !== MemoryCardState.Hidden && <Paper sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -35,10 +35,10 @@ export const MemoryCard = ({ id, state, img, onClick, cardBack }: MemoryCardProp
         width: 150
       }}
         elevation={6}
-        onClick={onClick(id)}
+        onClick={onClick}
       >
-        {state === MemoryCardState.FaceUp && <CardImage src={img} />}
-        {state === MemoryCardState.FaceDown && <CardImage src={cardBack} />}
+        {cardState === MemoryCardState.FaceUp && <CardImage src={img} />}
+        {cardState === MemoryCardState.FaceDown && <CardImage src={cardBack} />}
       </Paper >
     }
   </Box>
