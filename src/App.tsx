@@ -4,6 +4,8 @@ import React from 'react';
 import { Board } from './components/Board';
 import CssBaseline from '@mui/material/CssBaseline';
 
+
+//TODO: Move styling to theme or separate file
 const App = () => (
   <>
     <CssBaseline />
@@ -13,7 +15,7 @@ const App = () => (
       fontFamily: 'PocketMonk'
     }}>
       <Container maxWidth='lg'>
-        <Typography sx={{ fontFamily: 'PocketMonk', color: '#ffcd05', fontSize: '150px' }} variant="h1" component="h1">
+        <Typography sx={{ fontFamily: 'PocketMonk', textAlign: 'center', color: '#ffcd05', fontSize: '150px' }} variant="h4" component="h4">
           Memory Game
         </Typography>;
         <Board />
