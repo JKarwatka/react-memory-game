@@ -7,7 +7,7 @@ interface BoardState {
   cards: MemoryCardData[]
 }
 
-const GRID_SIZE = 8
+const GRID_SIZE = 10
 const initialState: BoardState = {
   cards: generateBoard(GRID_SIZE)
 }

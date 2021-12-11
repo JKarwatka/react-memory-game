@@ -14,10 +14,7 @@ export const Board = () => {
   return (
     <Box sx={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(6, 1fr)',
-      gridTemplateRows: 'repeat(6, 1fr)',
-      columnGap: 3,
-      rowGap: 5,
+      gridTemplateColumns: 'repeat(5, 1fr)',
     }}>
       {cards.map(({ img, cardState, id }) =>
         <MemoryCard

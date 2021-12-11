@@ -12,6 +12,7 @@ interface MemoryCardProps extends MemoryCardData {
 
 const CardImage = styled('img')({
   maxWidth: ' 100%',
+  maxHeight: '100%',
   height: 'auto'
 })
 
@@ -23,16 +24,17 @@ export const MemoryCard = ({ id, cardState, img, onClick, cardBack }: MemoryCard
     justifyContent: 'center',
     alignItems: 'center',
     height: 200,
-    width: 200
+    width: 200,
+    padding: 1
   }}>
     {
       cardState !== MemoryCardState.Hidden && <Paper sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 4,
-        height: 150,
-        width: 150
+        padding: 3,
+        height: '100%',
+        width: '100%'
       }}
         elevation={6}
         onClick={onClick}
