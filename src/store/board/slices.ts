@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { GameState } from '../../utils/GameStates'
 import { generateBoard } from '../../utils/generateBoard'
 import { MemoryCardData } from '../../utils/MemoryCardData'
 import { MemoryCardState } from '../../utils/MemoryCardState'
@@ -13,6 +14,7 @@ const initialState: BoardState = {
 }
 
 export const boardSlice = createSlice({
+
   name: 'board',
   initialState,
   reducers: {
@@ -34,6 +36,17 @@ export const boardSlice = createSlice({
             ? ({
               ...card,
               cardState: MemoryCardState.FaceDown
+            })
+            : card
+        )
+    },
+    removeCard: (state, action: PayloadAction<string>) => {
+      state.cards
+        .map(card =>
+          card.id === action.payload
+            ? ({
+              ...card,
+              cardState: MemoryCardState.Removed
             })
             : card
         )
