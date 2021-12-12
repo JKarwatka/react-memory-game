@@ -2,7 +2,7 @@ import React from 'react'
 import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { MemoryCard } from '.'
-import { MemoryCardState } from '../../utils/MemoryCardState'
+import { MemoryCardState } from '../../utils/enums'
 
 const defaultProps = {
   id: 'id',
@@ -43,7 +43,7 @@ describe('MemoryCard', () => {
 
   it('should not show card back when card is hidden', async () => {
 
-    render(<MemoryCard {...defaultProps} cardState={MemoryCardState.Hidden} />)
+    render(<MemoryCard {...defaultProps} cardState={MemoryCardState.Removed} />)
 
     const image = screen.queryByRole('img');
 

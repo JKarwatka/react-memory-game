@@ -1,15 +1,15 @@
 import React from 'react'
 import { Box } from '@mui/system'
 import { MemoryCard } from '../MemoryCard'
-import { getCardImage } from '../../utils/getCardImage'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../../store/store'
-import { revealCard } from '../../store/slices/boardSlice'
-import { CARD_BACK } from '../../utils/cardNames'
+import { RootState, useAppDispatch, useAppSelector } from '../../store/store'
+import { getCardImage } from '../../utils/helpers'
+import { CARD_BACK } from '../../utils/consts'
+import { cardClicked } from '../../store/board/slices'
+
 
 export const Board = () => {
-  const cards = useSelector((state: RootState) => state.board.cards)
-  const dispatch = useDispatch()
+  const cards = useAppSelector((state: RootState) => state.board.cards)
+  const dispatch = useAppDispatch()
 
   return (
     <Box sx={{
@@ -20,7 +20,7 @@ export const Board = () => {
         <MemoryCard
           key={id}
           img={getCardImage(img)}
-          onClick={() => dispatch(revealCard(id))}
+          onClick={() => dispatch(cardClicked(id))}
           cardState={cardState}
           id={id}
           cardBack={getCardImage(CARD_BACK)}

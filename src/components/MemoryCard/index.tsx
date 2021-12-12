@@ -1,8 +1,8 @@
 import React from 'react'
 import Paper from '@mui/material/Paper';
 import { Box, styled } from '@mui/system';
-import { MemoryCardState } from '../../utils/MemoryCardState';
-import { MemoryCardData } from '../../utils/MemoryCardData';
+import { MemoryCardData } from '../../utils/interfaces';
+import { MemoryCardState } from '../../utils/enums';
 
 interface MemoryCardProps extends MemoryCardData {
   cardBack: string
@@ -28,7 +28,7 @@ export const MemoryCard = ({ id, cardState, img, onClick, cardBack }: MemoryCard
     padding: 1
   }}>
     {
-      cardState !== MemoryCardState.Hidden && <Paper sx={{
+      cardState !== MemoryCardState.Removed && <Paper sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
