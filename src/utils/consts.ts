@@ -42,3 +42,5 @@ export const CARD_NAMES = [
 ]
 
 export const CARD_BACK = 'back.svg'
+
+export const DEFAULT_NUM_OF_PAIRS = 8

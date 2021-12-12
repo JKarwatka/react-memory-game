@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
-import { CARD_NAMES } from './cardNames'
-import { MemoryCardState } from './MemoryCardState'
+import { CARD_NAMES } from './consts'
+import { MemoryCardState } from './enums'
 
 export const generateBoard = (size: number) => {
   const images = _.sampleSize(CARD_NAMES, size)
@@ -15,3 +15,5 @@ export const generateBoard = (size: number) => {
     }))
     .sort(() => Math.random() - 0.5)
 }
+
+export const getCardImage = (imgName: string) => `${process.env.PUBLIC_URL}/img/${imgName}`
