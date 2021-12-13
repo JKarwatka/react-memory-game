@@ -8,3 +8,7 @@ export interface MemoryCardData {
   img: string,
   cardState: MemoryCardState
 }
+
+export interface Board {
+  [key: string]: MemoryCardData;
+}
