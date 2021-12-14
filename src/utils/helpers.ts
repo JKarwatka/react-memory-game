@@ -10,14 +10,10 @@ export const generateBoard = (numOfPairs: number) => {
 
   const ids = generateIds(numOfPairs * 2)
 
-  ids.forEach((id, i) => {
-    console.log(id)
-    board[id] = {
-      id,
-      img: images[i % numOfPairs],
-      cardState: MemoryCardState.FaceDown
-    }
-  })
+  ids.forEach(
+    (id, i) =>
+      board[id] = generateCard(id, images[i % numOfPairs], MemoryCardState.FaceDown)
+  )
 
   return board
 }
@@ -35,4 +31,11 @@ export const generateIds = (num: number) =>
   Array.from(new Array(num)).map(_ => uuidv4())
 
 export const generateOrder = (orderArr: CardId[]): CardId[] => orderArr.sort(() => Math.random() - 0.5)
+
+export const generateCard = (id: CardId, img: string, cardState: MemoryCardState): MemoryCardData => ({
+  id,
+  img,
+  cardState
+})
+
 
