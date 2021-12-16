@@ -1,14 +1,17 @@
 import React from 'react'
 import { Box } from '@mui/system'
 import { MemoryCard } from '../MemoryCard'
-import { RootState, useAppDispatch, useAppSelector } from '../../store/store'
+import { useAppDispatch, useAppSelector } from '../../store/store'
 import { getCardImage } from '../../utils/helpers'
 import { CARD_BACK } from '../../utils/consts'
-import { cardClicked } from '../../store/board/slices'
+import { getCardsInOrder } from '../../store/board/selectors'
+import { MemoryCardData } from '../../utils/types'
+import { cardClicked } from '../../store/board/slice'
 
-
-export const Board = () => {
-  const cards = useAppSelector((state: RootState) => state.board.cards)
+//TODO: move card_back to state and get it through selector
+//TODO: move styles to theme or separate file
+export const MemoryBoard = () => {
+  const cards: MemoryCardData[] = useAppSelector(getCardsInOrder)
   const dispatch = useAppDispatch()
 
   return (

@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { GameState, MemoryCardState } from '../../utils/enums'
-import { Board, CardId } from '../../utils/interfaces'
+import { Board, CardId } from '../../utils/types'
 import { getCurrentGameState } from '../game/selectors'
 import { RootState } from '../store'
 import { ThunkAction } from 'redux-thunk'
 import { AnyAction } from 'redux'
 import { getNumOfRevealedCards, isCardRevealed } from './selectors'
-import { changeGameState, gameStateChanged } from '../game/slices'
+import { changeGameState, gameStateChanged } from '../game/slice'
 
 interface BoardState {
   cards: Board,
@@ -14,7 +14,7 @@ interface BoardState {
 }
 
 
-const initialState: BoardState = {
+export const initialState: BoardState = {
   cards: {},
   cardsOrder: []
 }

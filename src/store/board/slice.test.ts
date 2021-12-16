@@ -1,6 +1,6 @@
 import { MemoryCardState } from '../../utils/enums'
 import { generateBoard, generateCard } from '../../utils/helpers'
-import boardReducer, { hideCard, removeCard, revealCard, setupCards, setupCardsOrder } from './slices'
+import boardReducer, { hideCard, removeCard, revealCard, setupCards, setupCardsOrder } from './slice'
 
 describe('boardSlice', () => {
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Paper from '@mui/material/Paper';
 import { Box, styled } from '@mui/system';
-import { MemoryCardData } from '../../utils/interfaces';
+import { MemoryCardData } from '../../utils/types';
 import { MemoryCardState } from '../../utils/enums';
 
 interface MemoryCardProps extends MemoryCardData {

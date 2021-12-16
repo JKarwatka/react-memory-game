@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import boardReducer from './board/slices';
-import gameReducer from './game/slices';
+import boardReducer from './board/slice';
+import gameReducer from './game/slice';
 
 
 export const store = configureStore({

@@ -2,7 +2,7 @@ import _ from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
 import { CARD_NAMES } from './consts'
 import { MemoryCardState } from './enums'
-import { Board, CardId, MemoryCardData } from './interfaces'
+import { Board, CardId, MemoryCardData } from './types'
 
 export const generateBoard = (numOfPairs: number) => {
   const images = _.sampleSize(CARD_NAMES, numOfPairs)

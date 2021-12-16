@@ -1,6 +1,6 @@
 import { MemoryCardState } from "./enums"
 import { areCardsMatching, generateBoard, generateCard, generateIds, getCardImage } from "./helpers"
-import { MemoryCardData } from "./interfaces"
+import { MemoryCardData } from "./types"
 
 describe('helpers', () => {
   describe('generateBoard', () => {
