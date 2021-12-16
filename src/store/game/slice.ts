@@ -4,10 +4,9 @@ import { GameState } from '../../utils/enums'
 import { RootState } from '../store'
 import { ThunkAction } from 'redux-thunk'
 import { AnyAction } from 'redux'
-import { getCurrentGameState } from './selectors'
 import { areCardsMatching, generateBoard, generateOrder } from '../../utils/helpers'
 import { areAllCardsRemoved, getRevealedCards } from '../board/selectors'
-import { boardSlice, hideCard, setupCards, setupCardsOrder, removeCard } from '../board/slice'
+import { hideCard, setupCards, setupCardsOrder, removeCard } from '../board/slice'
 
 interface gameState {
   currentState: GameState,
@@ -44,7 +43,6 @@ export const initializeGame = (numOfPairs: number): ThunkAction<void, RootState,
 
 export const gameStateChanged = (gameState: GameState): ThunkAction<void, RootState, unknown, AnyAction> => (dispatch, getState) => {
   const state = getState()
-  const currState = getCurrentGameState(state)
   switch (gameState) {
     case GameState.MATCHING_CARDS: {
       const revealedCards = getRevealedCards(state)

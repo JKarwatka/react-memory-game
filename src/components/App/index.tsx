@@ -12,9 +12,7 @@ import { initializeGame } from '../../store/game/slice';
 const App = () => {
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(initializeGame(DEFAULT_NUM_OF_PAIRS));
-  }, [])
+  useEffect(() => dispatch(initializeGame(DEFAULT_NUM_OF_PAIRS)), [dispatch])
 
   return (
     <>
