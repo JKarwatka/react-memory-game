@@ -11,8 +11,10 @@ export const getCardsOrder = (state: RootState) => state.board.cardsOrder
 
 export const getCardById = (id: CardId) => (state: RootState) => state.board.cards[id]
 
+export const getCardState = (id: CardId) => createSelector(getCardById(id), card => card.cardState)
 
-export const isCardRevealed = (id: CardId) => createSelector(getCardById(id), card => card.cardState === MemoryCardState.FaceUp)
+export const isCardRevealed = (id: CardId) => createSelector(getCardState(id), cardState => cardState === MemoryCardState.FaceUp)
+
 
 
 export const getCardsInOrder = createSelector(getCardsOrder, getCards, (cardsIds, cards) => cardsIds.map(id => cards[id]))

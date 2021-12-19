@@ -1,8 +1,7 @@
 import React from 'react'
-import Paper from '@mui/material/Paper';
-import { Box, styled } from '@mui/system';
+import { styled } from '@mui/system';
 import { MemoryCardData } from '../../utils/types';
-import { MemoryCardState } from '../../utils/enums';
+import { FilippableCard } from '../FlippableCard';
 
 interface MemoryCardProps extends MemoryCardData {
   cardBack: string
@@ -10,7 +9,7 @@ interface MemoryCardProps extends MemoryCardData {
 }
 
 
-const CardImage = styled('img')({
+export const CardImage = styled('img')({
   maxWidth: ' 100%',
   maxHeight: '100%',
   height: 'auto'
@@ -19,31 +18,13 @@ const CardImage = styled('img')({
 //TODO: Refactor displaying Card based on state
 //TODO: Move styled components to separate file
 export const MemoryCard = ({ id, cardState, img, onClick, cardBack }: MemoryCardProps) => (
-  <Box sx={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 200,
-    width: 200,
-    padding: 1
-  }}>
-    {
-      cardState !== MemoryCardState.Removed && <Paper sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 3,
-        height: '100%',
-        width: '100%'
-      }}
-        elevation={6}
-        onClick={onClick}
-      >
-        {cardState === MemoryCardState.FaceUp && <CardImage src={img} />}
-        {cardState === MemoryCardState.FaceDown && <CardImage src={cardBack} />}
-      </Paper >
-    }
-  </Box>
+  <FilippableCard
+    FrontContent={() => <CardImage src={img} />}
+    BackContent={() => <CardImage src={cardBack} />}
+    id={id}
+    onClick={onClick}
+    cardState={cardState}
+  />
 )
 
 
