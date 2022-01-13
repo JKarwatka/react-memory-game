@@ -5,7 +5,7 @@ import { Box, SxProps } from '@mui/system';
 import { MemoryCardState } from '../../utils/enums';
 import { getCardState } from '../../store/board/selectors';
 import { useAppSelector } from '../../store/store';
-import { backVariants, containerStyles, frontVariants, paperStyles } from './styles';
+import { backVariants, containerStyles, enlargeCardTransition, frontVariants, paperStyles } from './styles';
 
 interface FilippableCardProps {
   id: string,
@@ -25,10 +25,7 @@ export const FilippableCard = ({ id, onClick, FrontContent, BackContent }: Filip
       component={motion.div}
       sx={containerStyles}
       onClick={onClick}
-      whileHover={{
-        scale: 1.05,
-        transition: { duration: 0.1 }
-      }}
+      whileHover={enlargeCardTransition}
       initial={false}
     >
       <Paper
