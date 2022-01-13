@@ -1,4 +1,4 @@
-export enum MemoryCardState {
+export enum FlippableCardState {
   FaceDown,
   FaceUp,
   Removed

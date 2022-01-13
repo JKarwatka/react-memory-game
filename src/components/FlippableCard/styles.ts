@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material"
 import { SxProps } from "@mui/system"
-import { MemoryCardState } from "../../utils/enums"
+import { FlippableCardState } from "../../utils/enums"
 
 const flipCardTransition = {
   type: 'spring',
@@ -19,20 +19,20 @@ export const enlargeCardTransition = {
 }
 
 export const frontVariants = {
-  [MemoryCardState.FaceUp]: {
+  [FlippableCardState.FaceUp]: {
     opacity: 1,
     rotateY: 0,
     translateZ: 0,
     transition: flipCardTransition
   },
-  [MemoryCardState.FaceDown]: {
+  [FlippableCardState.FaceDown]: {
     opacity: 1,
     rotateY: 180,
     translateZ: 0,
     transition: flipCardTransition
   },
 
-  [MemoryCardState.Removed]: {
+  [FlippableCardState.Removed]: {
     opacity: 0,
     rotateY: 0,
     translateZ: '-1100px',
@@ -41,20 +41,20 @@ export const frontVariants = {
 }
 
 export const backVariants = {
-  [MemoryCardState.FaceUp]: {
+  [FlippableCardState.FaceUp]: {
     opacity: 1,
     rotateY: 180,
     translateZ: 0,
     transition: flipCardTransition
   },
-  [MemoryCardState.FaceDown]: {
+  [FlippableCardState.FaceDown]: {
     opacity: 1,
     rotateY: 0,
     translateZ: 0,
     transition: flipCardTransition
   },
 
-  [MemoryCardState.Removed]: {
+  [FlippableCardState.Removed]: {
     opacity: 0,
     rotateY: 180,
     translateZ: -1100,

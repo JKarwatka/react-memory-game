@@ -2,11 +2,11 @@ import React from 'react'
 import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { MemoryCard } from '.'
-import { MemoryCardState } from '../../utils/enums'
+import { FlippableCardState } from '../../utils/enums'
 
 const defaultProps = {
   id: 'id',
-  cardState: MemoryCardState.FaceDown,
+  cardState: FlippableCardState.FaceDown,
   img: 'img',
   onClick: () => () => { },
   cardBack: 'cardBack'
@@ -16,7 +16,7 @@ describe('MemoryCard', () => {
   it('should show correct image when card is faced up', async () => {
     const img = 'test'
     const props = {
-      cardState: MemoryCardState.FaceUp,
+      cardState: FlippableCardState.FaceUp,
       img
     }
 
@@ -30,7 +30,7 @@ describe('MemoryCard', () => {
   it('should show card back when card is faced down', async () => {
     const cardBack = 'test'
     const props = {
-      cardState: MemoryCardState.FaceDown,
+      cardState: FlippableCardState.FaceDown,
       cardBack
     }
 
@@ -43,7 +43,7 @@ describe('MemoryCard', () => {
 
   it('should not show card back when card is hidden', async () => {
 
-    render(<MemoryCard {...defaultProps} cardState={MemoryCardState.Removed} />)
+    render(<MemoryCard {...defaultProps} cardState={FlippableCardState.Removed} />)
 
     const image = screen.queryByRole('img');
 

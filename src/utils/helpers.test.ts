@@ -1,4 +1,4 @@
-import { MemoryCardState } from "./enums"
+import { FlippableCardState } from "./enums"
 import { areCardsMatching, generateBoard, generateCard, generateIds, getCardImage } from "./helpers"
 import { MemoryCardData } from "./types"
 
@@ -58,8 +58,8 @@ describe('helpers', () => {
 
   describe('areCardsMatching', () => {
     test.each([
-      [true, 'are', [generateCard('testId1', 'machingImg', MemoryCardState.FaceDown), generateCard('testId2', 'machingImg', MemoryCardState.FaceDown)]],
-      [false, 'are not', [generateCard('testId1', 'testImg', MemoryCardState.FaceDown), generateCard('testId2', 'differentImg', MemoryCardState.FaceDown)]]
+      [true, 'are', [generateCard('testId1', 'machingImg', FlippableCardState.FaceDown), generateCard('testId2', 'machingImg', FlippableCardState.FaceDown)]],
+      [false, 'are not', [generateCard('testId1', 'testImg', FlippableCardState.FaceDown), generateCard('testId2', 'differentImg', FlippableCardState.FaceDown)]]
     ])('should return %s when cards %s matching', (expectedResult, _, array) => {
       const result = areCardsMatching(array)
 
@@ -73,7 +73,7 @@ describe('helpers', () => {
       const cardData = {
         id: 'testId',
         img: 'testImg',
-        cardState: MemoryCardState.FaceDown
+        cardState: FlippableCardState.FaceDown
       }
       const result = generateCard(cardData.id, cardData.img, cardData.cardState)
 

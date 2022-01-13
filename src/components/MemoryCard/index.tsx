@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from '@mui/system';
 import { MemoryCardData } from '../../utils/types';
 import { FilippableCard } from '../FlippableCard';
+import { FlippableCardState } from '../../utils/enums';
 
 interface MemoryCardProps extends MemoryCardData {
   cardBack: string

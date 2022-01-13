@@ -1,4 +1,4 @@
-import { MemoryCardState } from '../../utils/enums'
+import { FlippableCardState } from '../../utils/enums'
 import { generateBoard, generateCard } from '../../utils/helpers'
 import boardReducer, { hideCard, removeCard, revealCard, setupCards, setupCardsOrder } from './slice'
 
@@ -15,9 +15,9 @@ describe('boardSlice', () => {
       'revealCard',
       {
         cardId: 'id',
-        initialCardState: MemoryCardState.FaceDown,
+        initialCardState: FlippableCardState.FaceDown,
         action: revealCard,
-        expectedResult: MemoryCardState.FaceUp
+        expectedResult: FlippableCardState.FaceUp
       }
     ],
     [
@@ -25,9 +25,9 @@ describe('boardSlice', () => {
       'hideCard',
       {
         cardId: 'id',
-        initialCardState: MemoryCardState.FaceUp,
+        initialCardState: FlippableCardState.FaceUp,
         action: hideCard,
-        expectedResult: MemoryCardState.FaceDown,
+        expectedResult: FlippableCardState.FaceDown,
       }
     ],
     [
@@ -35,9 +35,9 @@ describe('boardSlice', () => {
       'removeCard',
       {
         cardId: 'id',
-        initialCardState: MemoryCardState.FaceDown,
+        initialCardState: FlippableCardState.FaceDown,
         action: removeCard,
-        expectedResult: MemoryCardState.Removed,
+        expectedResult: FlippableCardState.Removed,
       }
     ],
 
@@ -65,7 +65,7 @@ describe('boardSlice', () => {
     }
     const cardId = 'test'
     const actionPayload = {
-      [cardId]: generateCard(cardId, 'img', MemoryCardState.FaceDown),
+      [cardId]: generateCard(cardId, 'img', FlippableCardState.FaceDown),
     }
 
     const result = boardReducer(initialState, setupCards(actionPayload))

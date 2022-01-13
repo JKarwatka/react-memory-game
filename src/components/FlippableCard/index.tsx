@@ -1,10 +1,8 @@
 import React, { ReactNode } from 'react'
-import { Paper, Theme } from "@mui/material";
+import { Paper } from "@mui/material";
 import { motion } from "framer-motion";
-import { Box, SxProps } from '@mui/system';
-import { MemoryCardState } from '../../utils/enums';
-import { getCardState } from '../../store/board/selectors';
-import { useAppSelector } from '../../store/store';
+import { Box } from '@mui/system';
+import { FlippableCardState } from '../../utils/enums';
 import { backVariants, containerStyles, enlargeCardTransition, frontVariants, paperStyles } from './styles';
 
 interface FilippableCardProps {
@@ -12,14 +10,13 @@ interface FilippableCardProps {
   FrontContent: () => ReactNode,
   BackContent: () => ReactNode,
   onClick: () => void,
-  cardState: MemoryCardState
+  cardState: FlippableCardState
 }
 
 
 
 
-export const FilippableCard = ({ id, onClick, FrontContent, BackContent }: FilippableCardProps) => {
-  const cardState = useAppSelector(getCardState(id))
+export const FilippableCard = ({ onClick, FrontContent, BackContent, cardState }: FilippableCardProps) => {
   return (
     <Box
       component={motion.div}

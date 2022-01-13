@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { GameState, MemoryCardState } from '../../utils/enums'
+import { GameState, FlippableCardState } from '../../utils/enums'
 import { Board, CardId } from '../../utils/types'
 import { getCurrentGameState } from '../game/selectors'
 import { RootState } from '../store'
@@ -24,13 +24,13 @@ export const boardSlice = createSlice({
   initialState,
   reducers: {
     revealCard: (state, action: PayloadAction<CardId>) => {
-      state.cards[action.payload].cardState = MemoryCardState.FaceUp
+      state.cards[action.payload].cardState = FlippableCardState.FaceUp
     },
     hideCard: (state, action: PayloadAction<CardId>) => {
-      state.cards[action.payload].cardState = MemoryCardState.FaceDown
+      state.cards[action.payload].cardState = FlippableCardState.FaceDown
     },
     removeCard: (state, action: PayloadAction<CardId>) => {
-      state.cards[action.payload].cardState = MemoryCardState.Removed
+      state.cards[action.payload].cardState = FlippableCardState.Removed
     },
     setupCards: (state, action: PayloadAction<Board>) => {
       state.cards = action.payload

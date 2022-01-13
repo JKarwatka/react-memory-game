@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
 import { CARD_NAMES } from './consts'
-import { MemoryCardState } from './enums'
+import { FlippableCardState } from './enums'
 import { Board, CardId, MemoryCardData } from './types'
 
 export const generateBoard = (numOfPairs: number) => {
@@ -12,7 +12,7 @@ export const generateBoard = (numOfPairs: number) => {
 
   ids.forEach(
     (id, i) =>
-      board[id] = generateCard(id, images[i % numOfPairs], MemoryCardState.FaceDown)
+      board[id] = generateCard(id, images[i % numOfPairs], FlippableCardState.FaceDown)
   )
 
   return board
@@ -32,7 +32,7 @@ export const generateIds = (num: number) =>
 
 export const generateOrder = (orderArr: CardId[]): CardId[] => orderArr.sort(() => Math.random() - 0.5)
 
-export const generateCard = (id: CardId, img: string, cardState: MemoryCardState): MemoryCardData => ({
+export const generateCard = (id: CardId, img: string, cardState: FlippableCardState): MemoryCardData => ({
   id,
   img,
   cardState
