@@ -1,4 +1,4 @@
-import { MemoryCardState } from "./enums";
+import { FlippableCardState } from "./enums";
 
 
 export type CardId = string
@@ -6,7 +6,7 @@ export type CardId = string
 export interface MemoryCardData {
   id: CardId,
   img: string,
-  cardState: MemoryCardState
+  cardState: FlippableCardState
 }
 
 export interface Board {
